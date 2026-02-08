@@ -1,0 +1,42 @@
+    </div> 
+</div> 
+
+<script>
+
+   var sender_id = '<%= loggedInUser._id %>'
+   var receiver_id = ''
+   var socket = io('/user',{
+      auth:{
+        token : sender_id
+      }
+   })
+
+   socket.on('OnlineStatus',function(data){
+       document.getElementById(`status-${data.userId}`).classList.remove('offline')
+   })
+
+   socket.on('OfflineStatus',function(data){
+       document.getElementById(`status-${data.userId}`).classList.add('offline')
+   })
+
+   socket.on('OnlineStatus',function(data){
+       document.getElementById('currentChatStatus').classList.remove('offline')
+       document.getElementById('currentChatStatusText').innerText = 'Online'
+   })
+
+   socket.on('OfflineStatus',function(data){
+       document.getElementById('currentChatStatus').classList.add('offline')
+       document.getElementById('currentChatStatusText').innerText = 'Offline'
+   })
+
+</script>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- <script src="https://cdn.socket.io/4.8.3/socket.io.min.js" integrity="sha386-d0837b1z2e5b/B5C+W/Z6t8z9z0r1/D9Zt0O/VqW+F8D3pQ/A3E4F9Z2Z2F2F2" crossorigin="anonymous"></script> -->
+
+<script src="/js/script.js"></script>
+<script src="/js/theme.js"></script>
+
+</body>
+</html>

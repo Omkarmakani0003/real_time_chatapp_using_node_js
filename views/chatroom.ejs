@@ -1,0 +1,58 @@
+<%- include('layouts/header', { title: 'ChatApp' }) %>
+
+<!-- Main Chat Area -->
+<main class="main-chat" id="mainChat">
+    <!-- Chat Header -->
+    <header class="chat-header">
+        <div class="d-flex align-items-center">
+            <i class="bi bi-arrow-left fs-4 text-secondary me-2 back-btn" id="backBtn"></i>
+            <div class="avatar-wrapper">
+                <img src="/images/images.png" alt="" class="chat-avatar" id="currentChatAvatar">
+                <div class="status-dot <%= chat.is_online == true ? '' : 'offline' %>" id="chat-<%= chat._id %>"></div>
+            </div>
+            <div>
+                <h6 class="m-0 fw-bold" id="currentChatName"><%= chat.fullName %></h6>
+                <small class="text-muted" id="text-status-<%= chat._id %>"><%= chat.is_online == true ? 'Online' : 'Offline' %></small>
+            </div>
+        </div>
+        <div class="d-flex gap-3 text-secondary">
+            <i class="bi bi-telephone fs-5" role="button"></i>
+            <i class="bi bi-camera-video fs-5" role="button"></i>
+            <div class="dropdown">
+                <i class="bi bi-three-dots-vertical fs-5 text-muted" role="button" data-bs-toggle="dropdown"></i>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">Theme</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item text-danger" href="#">Block</a></li>
+                    </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Messages Area -->
+    <div class="messages-area" id="messagesArea">
+
+    </div>
+
+    <!-- Typing Indicator -->
+    <div class="typing-indicator" id="typingIndicator">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+    <!-- Input Area -->
+    <footer class="chat-input-area">
+        <i class="bi bi-paperclip attachment-btn" title="Attach file"></i>
+        <i class="bi bi-emoji-smile attachment-btn" id="emojiBtn" title="Emoji"></i>
+        
+        <div class="input-wrapper">
+            <input type="text" class="chat-input" id="messageInput" placeholder="Type a message..." autocomplete="off">
+        </div>
+        
+        <button class="send-btn" id="sendBtn">
+            <i class="bi bi-send-fill"></i>
+        </button>
+    </footer>
+</main>
+<%- include('layouts/footer') %>
