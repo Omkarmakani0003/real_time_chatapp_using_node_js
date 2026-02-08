@@ -35,21 +35,12 @@
                         <div class="dropdown">
                             <i class="bi bi-three-dots-vertical fs-5 text-muted" role="button" data-bs-toggle="dropdown"></i>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">New Group</a></li>
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li><a class="dropdown-item" href="#">Settings</a></li>
-                                <li><hr class="dropdown-divider"></li>
+                              
                                 <li><a class="dropdown-item text-danger" href="/logout">Log out</a></li>
                             </ul>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Search -->
-                <div class="search-box">
-                    <i class="bi bi-search text-muted"></i>
-                    <input type="text" id="searchInput" placeholder="Search chats...">
-                </div>
+                </div>  
             </div>
 
             <!-- Chat List -->
@@ -67,7 +58,7 @@
                             <div class="chat-name"><%= user.fullName %></div>
                             <div class="chat-meta">
                                 <span><%= new Date(user.updatedAt).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true}) %></span>
-                                <span class="unread-badge" style="display: block;">unread</span>
+                                <!-- <span class="unread-badge" style="display: block;">unread</span> -->
                             </div>
                         </div>
                         <div class="chat-preview" id="last-message"><%= user.lastMessage ? user.lastMessage.message : 'Select to chat' %></div>

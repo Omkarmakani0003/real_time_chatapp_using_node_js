@@ -439,3 +439,12 @@ body {
     .main-chat.active { transform: translateX(0); z-index: 30; }
     .back-btn { display: block; margin-right: 1rem; cursor: pointer; }
 }
+@media (max-width: 600px) {
+  .container-fluid{
+    padding: 0
+  }
+  .chat-container {
+    border-radius: 0;
+    border: none
+  }
+}

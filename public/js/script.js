@@ -15,7 +15,7 @@
     const emojiBtn = document.getElementById('emojiBtn');
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
-
+    var avatar = ''
 
     function toggleTheme() {
         const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -38,6 +38,7 @@
 
     window.openChat = async function(id) {
         receiver_id = id
+        
         const user = await fetch(`/getuser`,
            {
              method: 'POST',
@@ -48,6 +49,7 @@
         const response = await user.json()
         
         if(response.success){
+            avatar = `/images/uploads/${response.data.avatar}`
             currentChatAvatar.src = `/images/uploads/${response.data.avatar}`
             socket.emit('oldchat',{sender_id:sender_id,receiver_id:receiver_id})
             document.getElementById('currentChatName').innerText = response.data.fullName
@@ -112,7 +114,7 @@
         
         if(receiver_id == response.sender_id && sender_id == response.receiver_id){
            let chatEle = `<div class="message incoming" style="animation:none">
-           <img src="https://picsum.photos/seed/sarah/200/200.jpg" class="msg-avatar">
+           
                 <div>
                      <div class="msg-bubble">
                         ${response.message}
@@ -138,7 +140,7 @@
              }
 
             chatHtml += `<div class="message ${Class}" style="animation:none">
-            <img src="https://picsum.photos/seed/sarah/200/200.jpg" class="msg-avatar">
+            
                 <div>
                      <div class="msg-bubble">
                         ${chat.message}
