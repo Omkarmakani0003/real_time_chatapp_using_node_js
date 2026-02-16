@@ -41,7 +41,7 @@ This project demonstrates WebSocket-based communication, JWT authentication, rea
 
 ### 💬 Real-Time Messaging
 - Instant message delivery using WebSockets  
-- Multi-user chat support  
+- One to one chat support  
 - Real-time communication powered by Socket.IO  
 
 ### 🟢 Live User Status
@@ -62,7 +62,6 @@ This project follows a clean backend structure:
 - Views → EJS Templates  
 - Controllers → Authentication & Chat Logic  
 - Routes → Application Routing  
-- Socket Layer → Real-time communication handling  
 
 Designed for scalability and efficient real-time performance.
 
@@ -75,17 +74,26 @@ Designed for scalability and efficient real-time performance.
 
 ---
 
-## 🧪 Test Credentials  
-
-### 👤 Test User  
-Email: testuser@gmail.com  
-Password: 123456  
-
-*(You can register a new user as well to test multi-user chat functionality)*
+* You can register a new user as well to test multi-user chat functionality 
 
 ---
 
 ## ⚙️ Environment Variables  
 
 Create a `.env` file and configure:
+
+<pre>
+  PORT = 3000
+  DBURI = mongodb+srv://makaniomkar3141_db_user:zseDccxMyQJRqPNH@cluster0.se9rcfz.mongodb.net/e-shop
+  JWTSECRET = myjwtsecret
+</pre>
+
+## ⚙️ Install Dependencies 
+
+npm install
+
+## ⚙️ Run the Application
+
+npm run dev
+
 
