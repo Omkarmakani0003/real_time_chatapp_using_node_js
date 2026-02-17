@@ -83,9 +83,9 @@ Designed for scalability and efficient real-time performance.
 Create a `.env` file and configure:
 
 <pre>
-  PORT = 3000
-  DBURI = mongodb+srv://makaniomkar3141_db_user:zseDccxMyQJRqPNH@cluster0.se9rcfz.mongodb.net/e-shop
-  JWTSECRET = myjwtsecret
+  PORT = 
+  DBURI = 
+  JWTSECRET =
 </pre>
 
 ## ⚙️ Install Dependencies 
